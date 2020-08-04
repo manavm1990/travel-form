@@ -1,16 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export class RadioInput extends React.Component {
-  static propTypes = {
-    checked: PropTypes.bool.isRequired,
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    radioHandler: PropTypes.func,
-  };
+import { CheckboxInput } from "./CheckboxInput"
 
-  handleChange = (event) => {
-    this.props.radioHandler(event);
+export class RadioInput extends CheckboxInput {
+  static propTypes = {
+    value: PropTypes.string.isRequired,
   };
 
   render() {

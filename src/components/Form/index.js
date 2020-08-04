@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
-import { Checkbox, Input, Radio } from "./Input";
-import { Select } from "./Select";
+import { Checkbox, Input, Radio } from "./Inputs"
+import { Select } from "./Select"
 
 export class Form extends Component {
   state = {
@@ -14,12 +14,12 @@ export class Form extends Component {
     isJew: false,
     isLactose: false,
     location: "",
-  };
+  }
 
   destinations = {
     name: "destination",
     options: ["India", "Murica", "Australia", "Germany"],
-  };
+  }
 
   dietaryRestrictions = [
     {
@@ -37,7 +37,7 @@ export class Form extends Component {
       type: "checkbox",
       value: "isLactoseFree",
     },
-  ];
+  ]
 
   genderInputs = [
     {
@@ -50,7 +50,7 @@ export class Form extends Component {
       type: "radio",
       value: "F",
     },
-  ];
+  ]
 
   textInputs = [
     {
@@ -65,10 +65,10 @@ export class Form extends Component {
       name: "age",
       placeholder: "Age",
     },
-  ];
+  ]
 
   handleChange = ({ target }) => {
-    const { name, value, type, checked } = target;
+    const { name, value, type, checked } = target
 
     type === "checkbox"
       ? this.setState({
@@ -76,8 +76,8 @@ export class Form extends Component {
         })
       : this.setState({
           [name]: value,
-        });
-  };
+        })
+  }
 
   render() {
     return (
@@ -96,7 +96,7 @@ export class Form extends Component {
             checked={this.state.gender === value}
             name={name}
             value={value}
-            radioHandler={this.handleChange}
+            handler={this.handleChange}
             key={i}
           />
         ))}
@@ -110,13 +110,14 @@ export class Form extends Component {
           <Checkbox
             name={name}
             value={value}
-            checkboxHandler={this.handleChange}
+            handler={this.handleChange}
+            checked={this.state[name]}
             key={i}
           />
         ))}
 
         <button>Submit</button>
       </form>
-    );
+    )
   }
 }

@@ -11,7 +11,6 @@ export class Form extends Component {
     gender: "",
     destination: "India",
     isVegan: false,
-    isJew: false,
     isLactose: false,
     location: "",
   }
@@ -26,11 +25,6 @@ export class Form extends Component {
       name: "isVegan",
       type: "checkbox",
       value: "isVegan",
-    },
-    {
-      name: "isJew",
-      type: "checkbox",
-      value: "isJew",
     },
     {
       name: "isLactoseFree",

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 
-export const Checkbox = ({checked, id, handler}) => {
+export const Checkbox = ({checked, id, label, handler}) => {
 return (
       <input
         checked={checked}
@@ -16,4 +16,5 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   handler: PropTypes.func,
   id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired
 }

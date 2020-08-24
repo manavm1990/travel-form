@@ -21,12 +21,14 @@ export const Form = () => {
     {
       checked: isVegan,
       id: "isVegan",
+      label: "Vegan",
       type: "checkbox",
       value: "isVegan",
     },
     {
       checked: isLactoseFree,
       id: "isLactoseFree",
+      label: "Lactose Free",
       type: "checkbox",
       value: "isLactoseFree",
     },
@@ -109,9 +111,10 @@ export const Form = () => {
 
       <Select selections={destinations} handler={handleChange} />
 
-      {dietaryRestrictions.map(({ checked, id, value }, i) => (
+      {dietaryRestrictions.map(({ checked, id, label, value }, i) => (
         <Checkbox
           id={id}
+          label={label}
           value={value}
           handler={handleChange}
           checked={checked}

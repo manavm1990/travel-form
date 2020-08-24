@@ -1,22 +1,23 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export class Input extends React.Component {
-  static defaultProps= {
-    placeholder: ""
-  }
+export const Input = ({id, placeholder, handler}) => {
+  return (
+    <div className="field">
+      <label className="label" htmlFor={id}>{placeholder}</label>
+      <div className="control">
+        <input
+          type="text"
+          id={id}
+          onChange={handler}
+        />
+      </div>
+    </div>
+  )
+}
 
-  static propTypes = {
-    inputHandler: PropTypes.func,
-    name: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-  };
-
-  handleChange = (event) => {
-    this.props.inputHandler(event)
-  }
-
-  render() {
-    return <input type="text" name={this.props.name} placeholder={this.props.placeholder} onChange={this.handleChange}/>;
-  }
+Input.propTypes = {
+  handler: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  placeholder: PropTypes
 }

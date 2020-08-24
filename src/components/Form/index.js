@@ -48,21 +48,21 @@ export const Form = () => {
 
   const textInputs = [
     {
-      name: "fName",
+      id: "fName",
       placeholder: "First Name",
     },
     {
-      name: "lName",
+      id: "lName",
       placeholder: "Last Name",
     },
     {
-      name: "age",
+      id: "age",
       placeholder: "Age",
     },
   ]
 
-  const handleChange = ({ target: { name, value, checked } }) => {
-    switch (name) {
+  const handleChange = ({ target: { id, value, checked } }) => {
+    switch (id) {
       case "fName":
         setFirstName(value)
         break
@@ -92,19 +92,19 @@ export const Form = () => {
 
   return (
     <form>
-      {textInputs.map(({ name, placeholder }, i) => (
+      {textInputs.map(({ id, placeholder }, i) => (
         <Input
-          name={name}
-          placeholder={placeholder}
-          inputHandler={handleChange}
+          handler={handleChange}
+          id={id}
           key={i}
+          placeholder={placeholder}
         />
       ))}
 
-      {genderInputs.map(({ name, value }, i) => (
+      {genderInputs.map(({ id, value }, i) => (
         <Radio
           checked={gender === value}
-          name={name}
+          id={id}
           value={value}
           handler={handleChange}
           key={i}
@@ -113,9 +113,9 @@ export const Form = () => {
 
       <Select selections={destinations} selectionsHandler={handleChange} />
 
-      {dietaryRestrictions.map(({ checked, name, value = name }, i) => (
+      {dietaryRestrictions.map(({ checked, id, value }, i) => (
         <Checkbox
-          name={name}
+          id={id}
           value={value}
           handler={handleChange}
           checked={checked}

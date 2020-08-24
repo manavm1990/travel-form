@@ -6,7 +6,7 @@ import { Select } from "./Select"
 export const Form = () => {
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
-  const [age, setAge] = useState("")
+  const [email, setEmail] = useState("")
   const [gender, setGender] = useState("")
   const [destination, setDestination] = useState("India")
   const [isVegan, setIsVegan] = useState(false)
@@ -71,8 +71,8 @@ export const Form = () => {
       case "lName":
         setLastName(value)
         break
-      case "age":
-        setAge(value)
+      case "email":
+        setEmail(value)
         break
       case "destination":
         setDestination(value)

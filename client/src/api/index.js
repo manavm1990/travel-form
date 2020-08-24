@@ -12,9 +12,11 @@ export default {
     return await res.json()
   },
 
-  deleteAllTravels() {
-    fetch("http://localhost:5000/travels/delete", {
+  async deleteAllTravels() {
+    const res = await fetch("http://localhost:5000/travel/delete", {
       method: "DELETE"
     })
+
+    return await res.json()
   }
 }

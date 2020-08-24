@@ -122,7 +122,7 @@ export const Form = () => {
         />
       ))}
 
-      <button>Submit</button>
+      <button className="button">Submit</button>
     </form>
   )
 }

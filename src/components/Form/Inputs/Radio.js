@@ -11,6 +11,7 @@ export const Radio = ({ checked, name, value, handler }) => {
           value={value}
           checked={checked}
           onChange={handler}
+          className="mr-1"
         />
         {value}
       </label>

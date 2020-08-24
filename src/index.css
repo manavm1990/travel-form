@@ -6,3 +6,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.center {
+  margin: 0 auto;
+  width: 90vw;
+}
+
+.grid {
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--justify-space-around {
+  justify-content: space-around;
+}

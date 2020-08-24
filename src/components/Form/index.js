@@ -89,40 +89,45 @@ export const Form = () => {
   }
 
   return (
-    <form>
-      {textInputs.map(({ id, placeholder }, i) => (
-        <Input
-          handler={handleChange}
-          id={id}
-          key={i}
-          placeholder={placeholder}
-        />
-      ))}
+    <form className="center">
+      <div className="grid mt-3">
+        {textInputs.map(({ id, placeholder }, i) => (
+          <Input
+            handler={handleChange}
+            id={id}
+            key={i}
+            placeholder={placeholder}
+          />
+        ))}
+        <Select selections={destinations} handler={handleChange} />
+      </div>
 
-      {genderInputs.map(({ name, value }, i) => (
-        <Radio
-          checked={gender === value}
-          name={name}
-          value={value}
-          handler={handleChange}
-          key={i}
-        />
-      ))}
+      <div className="is-divider" />
 
-      <Select selections={destinations} handler={handleChange} />
+      <div className="flex flex--justify-space-around">
+        {genderInputs.map(({ name, value }, i) => (
+          <Radio
+            checked={gender === value}
+            name={name}
+            value={value}
+            handler={handleChange}
+            key={i}
+          />
+        ))}
 
-      {dietaryRestrictions.map(({ checked, id, label, value }, i) => (
-        <Checkbox
-          id={id}
-          label={label}
-          value={value}
-          handler={handleChange}
-          checked={checked}
-          key={i}
-        />
-      ))}
+        {dietaryRestrictions.map(({ checked, id, label, value }, i) => (
+          <Checkbox
+            id={id}
+            label={label}
+            value={value}
+            handler={handleChange}
+            checked={checked}
+            key={i}
+          />
+        ))}
+      </div>
 
-      <button className="button">Submit</button>
+      <button className="button mt-3">Submit</button>
     </form>
   )
 }

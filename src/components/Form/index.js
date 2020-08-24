@@ -3,6 +3,8 @@ import React, { useState } from "react"
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
 
+import api from "api"
+
 export const Form = () => {
   const [firstName, setFirstName] = useState("")
   const [firstNameError, setFirstNameError] = useState("")
@@ -72,10 +74,7 @@ export const Form = () => {
   const validator = {
     validateEmail(val) {
       const lettersRe = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/gi)
-      return (
-        (val && lettersRe.test(val)) ||
-        "Email is not valid!"
-      )
+      return (val && lettersRe.test(val)) || "Email is not valid!"
     },
     validateNames(val) {
       // Letters Only RegExp - 'start' - letters only (unlimited) - end of string

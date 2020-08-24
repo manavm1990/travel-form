@@ -72,9 +72,6 @@ export const Form = () => {
       case "age":
         setAge(value)
         break
-      case "gender":
-        setGender(value)
-        break
       case "destination":
         setDestination(value)
         break
@@ -87,6 +84,9 @@ export const Form = () => {
       case "Location":
         setIsLactose(checked)
         break
+      // If nothing else, must be 🔘s
+      default:
+        setGender(value)
     }
   }
 
@@ -101,10 +101,10 @@ export const Form = () => {
         />
       ))}
 
-      {genderInputs.map(({ id, value }, i) => (
+      {genderInputs.map(({ name, value }, i) => (
         <Radio
           checked={gender === value}
-          id={id}
+          name={name}
           value={value}
           handler={handleChange}
           key={i}

@@ -1,6 +1,6 @@
 export default {
-  addTravel(newTravel) {
-    fetch("http://localhost:5000/travel/add", {
+  async addTravel(newTravel) {
+    const res = await fetch("http://localhost:5000/travel/add", {
       method: "POST",
       headers: {
         // Must specify that we are sending JSON! 🙄
@@ -9,6 +9,7 @@ export default {
       // Turn 'newTravel' JS Object into actual JSON
       body: JSON.stringify(newTravel),
     })
+    return await res.json()
   },
 
   deleteAllTravels() {

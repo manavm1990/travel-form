@@ -128,11 +128,11 @@ export const Form = () => {
     }
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     // Don't do anything if there are any errors!
     if (!firstNameError && !lastNameError && !emailError) {
-      api.addTravel({
+      const res = await api.addTravel({
         firstName,
         lastName,
         email,
@@ -140,6 +140,7 @@ export const Form = () => {
         destination,
         dietRestrictions: { isVegan, isLactoseFree },
       })
+      console.log(res);
     }
   }
 

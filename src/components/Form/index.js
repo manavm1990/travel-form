@@ -128,8 +128,23 @@ export const Form = () => {
     }
   }
 
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    // Don't do anything if there are any errors!
+    if (!firstNameError && !lastNameError && !emailError) {
+      api.addTravel({
+        firstName,
+        lastName,
+        email,
+        gender,
+        destination,
+        dietRestrictions: { isVegan, isLactoseFree },
+      })
+    }
+  }
+
   return (
-    <form className="center">
+    <form className="center" onSubmit={handleSubmit}>
       <div className="grid mt-3">
         {textInputs.map(({ id, placeholder, error }, i) => (
           <Input

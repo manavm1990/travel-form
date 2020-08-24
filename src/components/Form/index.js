@@ -11,10 +11,9 @@ export const Form = () => {
   const [destination, setDestination] = useState("India")
   const [isVegan, setIsVegan] = useState(false)
   const [isLactoseFree, setIsLactoseFree] = useState(false)
-  const [location, setLocation] = useState("")
 
   const destinations = {
-    name: "destination",
+    id: "destination",
     options: ["India", "America", "Australia", "Germany"],
   }
 
@@ -81,9 +80,6 @@ export const Form = () => {
       case "isLactoseFree":
         setIsLactoseFree(checked)
         break
-      case "Location":
-        setIsLactose(checked)
-        break
       // If nothing else, must be 🔘s
       default:
         setGender(value)
@@ -111,7 +107,7 @@ export const Form = () => {
         />
       ))}
 
-      <Select selections={destinations} selectionsHandler={handleChange} />
+      <Select selections={destinations} handler={handleChange} />
 
       {dietaryRestrictions.map(({ checked, id, value }, i) => (
         <Checkbox

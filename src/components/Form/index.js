@@ -10,7 +10,7 @@ export const Form = () => {
   const [gender, setGender] = useState("")
   const [destination, setDestination] = useState("India")
   const [isVegan, setIsVegan] = useState(false)
-  const [isLactose, setIsLactose] = useState(false)
+  const [isLactoseFree, setIsLactoseFree] = useState(false)
   const [location, setLocation] = useState("")
 
   const destinations = {
@@ -21,13 +21,13 @@ export const Form = () => {
   const dietaryRestrictions = [
     {
       checked: isVegan,
-      name: "isVegan",
+      id: "isVegan",
       type: "checkbox",
       value: "isVegan",
     },
     {
-      checked: isLactose,
-      name: "isLactoseFree",
+      checked: isLactoseFree,
+      id: "isLactoseFree",
       type: "checkbox",
       value: "isLactoseFree",
     },
@@ -81,8 +81,8 @@ export const Form = () => {
       case "isVegan":
         setIsVegan(checked)
         break
-      case "isLactose":
-        setIsLactose(checked)
+      case "isLactoseFree":
+        setIsLactoseFree(checked)
         break
       case "Location":
         setIsLactose(checked)

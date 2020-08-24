@@ -69,16 +69,50 @@ export const Form = () => {
     },
   ]
 
+  const validator = {
+    validateEmail(val) {
+      const lettersRe = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/gi)
+      return (
+        (val && lettersRe.test(val)) ||
+        "Email is not valid!"
+      )
+    },
+    validateNames(val) {
+      // Letters Only RegExp - 'start' - letters only (unlimited) - end of string
+      const lettersRe = new RegExp(/^[a-zA-Z]+$/g)
+      // Non-empty
+      return (
+        (val && lettersRe.test(val)) ||
+        "Name must be non-empty and letters only "
+      )
+    },
+  }
+
   const handleChange = ({ target: { id, value, checked } }) => {
     switch (id) {
       case "fName":
-        setFirstName(value)
+        setFirstNameError("")
+        if (typeof validator.validateNames(value) === "string") {
+          setFirstNameError(validator.validateNames(value))
+        } else {
+          setFirstName(value)
+        }
         break
       case "lName":
-        setLastName(value)
+        setLastNameError("")
+        if (typeof validator.validateNames(value) === "string") {
+          setLastNameError(validator.validateNames(value))
+        } else {
+          setLastName(value)
+        }
         break
       case "email":
-        setEmail(value)
+        setEmailError("")
+        if (typeof validator.validateEmail(value) === "string") {
+          setEmailError(validator.validateEmail(value))
+        } else {
+          setEmail(value)
+        }
         break
       case "destination":
         setDestination(value)

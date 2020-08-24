@@ -1,39 +1,39 @@
-import React, { Component } from "react"
+import React, { useState, setState } from "react"
 
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
 
-export class Form extends Component {
-  state = {
-    firstName: "",
-    lastName: "",
-    age: "",
-    gender: "",
-    destination: "India",
-    isVegan: false,
-    isLactose: false,
-    location: "",
-  }
+export const Form = () => {
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [age, setAge] = useState("")
+  const [gender, setGender] = useState("")
+  const [destination, setDestination] = useState("India")
+  const [isVegan, setIsVegan] = useState(false)
+  const [isLactose, setIsLactose] = useState(false)
+  const [location, setLocation] = useState("")
 
-  destinations = {
+  const destinations = {
     name: "destination",
-    options: ["India", "Murica", "Australia", "Germany"],
+    options: ["India", "America", "Australia", "Germany"],
   }
 
-  dietaryRestrictions = [
+  const dietaryRestrictions = [
     {
+      checked: isVegan,
       name: "isVegan",
       type: "checkbox",
       value: "isVegan",
     },
     {
+      checked: isLactose,
       name: "isLactoseFree",
       type: "checkbox",
       value: "isLactoseFree",
     },
   ]
 
-  genderInputs = [
+  const genderInputs = [
     {
       name: "gender",
       type: "radio",
@@ -46,13 +46,13 @@ export class Form extends Component {
     },
   ]
 
-  textInputs = [
+  const textInputs = [
     {
-      name: "fname",
+      name: "fName",
       placeholder: "First Name",
     },
     {
-      name: "lname",
+      name: "lName",
       placeholder: "Last Name",
     },
     {
@@ -61,57 +61,69 @@ export class Form extends Component {
     },
   ]
 
-  handleChange = ({ target }) => {
-    const { name, value, type, checked } = target
-
-    type === "checkbox"
-      ? this.setState({
-          [name]: checked,
-        })
-      : this.setState({
-          [name]: value,
-        })
+  const handleChange = ({ target: { name, value, checked } }) => {
+    switch (name) {
+      case "fName":
+        setFirstName(value)
+        break
+      case "lName":
+        setLastName(value)
+        break
+      case "age":
+        setAge(value)
+        break
+      case "gender":
+        setGender(value)
+        break
+      case "destination":
+        setDestination(value)
+        break
+      case "isVegan":
+        setIsVegan(checked)
+        break
+      case "isLactose":
+        setIsLactose(checked)
+        break
+      case "Location":
+        setIsLactose(checked)
+        break
+    }
   }
 
-  render() {
-    return (
-      <form>
-        {this.textInputs.map(({ name, placeholder }, i) => (
-          <Input
-            name={name}
-            placeholder={placeholder}
-            inputHandler={this.handleChange}
-            key={i}
-          />
-        ))}
-
-        {this.genderInputs.map(({ name, value }, i) => (
-          <Radio
-            checked={this.state.gender === value}
-            name={name}
-            value={value}
-            handler={this.handleChange}
-            key={i}
-          />
-        ))}
-
-        <Select
-          selections={this.destinations}
-          selectionsHandler={this.handleChange}
+  return (
+    <form>
+      {textInputs.map(({ name, placeholder }, i) => (
+        <Input
+          name={name}
+          placeholder={placeholder}
+          inputHandler={handleChange}
+          key={i}
         />
+      ))}
 
-        {this.dietaryRestrictions.map(({ name, value = name }, i) => (
-          <Checkbox
-            name={name}
-            value={value}
-            handler={this.handleChange}
-            checked={this.state[name]}
-            key={i}
-          />
-        ))}
+      {genderInputs.map(({ name, value }, i) => (
+        <Radio
+          checked={gender === value}
+          name={name}
+          value={value}
+          handler={handleChange}
+          key={i}
+        />
+      ))}
 
-        <button>Submit</button>
-      </form>
-    )
-  }
+      <Select selections={destinations} selectionsHandler={handleChange} />
+
+      {dietaryRestrictions.map(({ checked, name, value = name }, i) => (
+        <Checkbox
+          name={name}
+          value={value}
+          handler={handleChange}
+          checked={checked}
+          key={i}
+        />
+      ))}
+
+      <button>Submit</button>
+    </form>
+  )
 }

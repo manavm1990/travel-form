@@ -57,8 +57,9 @@ export const Form = () => {
       placeholder: "Last Name",
     },
     {
-      id: "age",
-      placeholder: "Age",
+      id: "email",
+      placeholder: "Email",
+      type: "email"
     },
   ]
 

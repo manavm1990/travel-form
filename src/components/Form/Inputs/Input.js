@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-export const Input = ({id, placeholder, handler}) => {
+export const Input = ({id, placeholder, type, handler}) => {
   return (
     <div className="field">
       <label className="label" htmlFor={id}>{placeholder}</label>
       <div className="control">
         <input
-          type="text"
+          type={type}
           id={id}
           onChange={handler}
         />
@@ -19,5 +19,8 @@ export const Input = ({id, placeholder, handler}) => {
 Input.propTypes = {
   handler: PropTypes.func,
   id: PropTypes.string.isRequired,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  type: PropTypes.string
 }
+
+Input.defaultProps = { type: "text" }

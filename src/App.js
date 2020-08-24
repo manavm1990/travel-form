@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
-import {Form} from "./components"
+import {Header, Form} from "./components"
 
 import "./App.css";
 
-export const App = () => {
-  return (
-    <Form />
-  );
-}
+export const App = () => (
+         <Fragment>
+           <Header />
+           <Form />
+         </Fragment>
+       )
+

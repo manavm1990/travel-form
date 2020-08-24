@@ -102,8 +102,6 @@ export const Form = () => {
         <Select selections={destinations} handler={handleChange} />
       </div>
 
-      <div className="is-divider" />
-
       <div className="flex flex--justify-space-around">
         {genderInputs.map(({ name, value }, i) => (
           <Radio

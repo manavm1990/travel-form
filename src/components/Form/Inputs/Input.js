@@ -19,5 +19,5 @@ export const Input = ({id, placeholder, handler}) => {
 Input.propTypes = {
   handler: PropTypes.func,
   id: PropTypes.string.isRequired,
-  placeholder: PropTypes
+  placeholder: PropTypes.string
 }

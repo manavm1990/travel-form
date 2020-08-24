@@ -7,7 +7,7 @@ export const Input = ({ id, placeholder, type, handler, error }) => (
       {placeholder}
     </label>
     <div className="control">
-      <input type={type} id={id} onChange={handler} />
+      <input type={type} id={id} onChange={handler} required />
     </div>
     {/* Conditional Rendering */}
     {error ? <p className="help is-danger">{error}</p> : null}

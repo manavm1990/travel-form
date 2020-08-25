@@ -23,3 +23,17 @@ export const deleteAllTravels = async () => {
     console.error(err);
   }
 };
+
+export const showTravels = async (email) => {
+  try {
+    console.log('email', email);
+    const showRes = await client
+      .db('travel')
+      .collection('travel')
+      .find({ email })
+      .toArray();
+    return showRes;
+  } catch (err) {
+    console.error(err);
+  }
+};

@@ -7,7 +7,7 @@ export const Header = () => {
   return (
     <header className="hero has-background-light">
       <div className="hero-body">
-        <div className="container has-text-centered ">
+        <div className="container has-text-centered">
           <Link to="/">
             <h1 className="title">Register for Travel</h1>
           </Link>

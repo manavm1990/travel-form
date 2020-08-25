@@ -28,7 +28,6 @@ router.delete('/delete', async (_, res) => {
 
 router.post('/show', async ({ body: { email } }, res) => {
   const dbRes = await showTravels(email);
-  console.log('hi', dbRes);
   res.status(200);
   res.json(dbRes);
 });

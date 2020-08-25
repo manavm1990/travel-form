@@ -26,11 +26,11 @@ export const deleteAllTravels = async () => {
 
 export const showTravels = async (email) => {
   try {
-    console.log('email', email);
     const showRes = await client
       .db('travel')
       .collection('travel')
       .find({ email })
+      // 'Mongo find' returns a 'cursor' that we must turn to an Array
       .toArray();
     return showRes;
   } catch (err) {

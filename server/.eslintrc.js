@@ -12,5 +12,6 @@ module.exports = {
   },
   rules: {
     'consistent-return': 'warn',
+    'no-unresolved': '[2, { ignore: ['\.db$'] }]',
   },
 };

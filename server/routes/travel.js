@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { addTravel, deleteAllTravels, showTravels } from '../db';
+import { addTravel, deleteAllTravels, showTravels } from 'db';
 
 const router = new Router();
 

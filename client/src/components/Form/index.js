@@ -135,22 +135,21 @@ export const Form = () => {
     event.preventDefault()
     // Don't do anything if there are any errors!
     if (!firstNameError && !lastNameError && !emailError) {
-      try {
-        api
-          .addTravel({
-            firstName,
-            lastName,
-            email,
-            gender,
-            destination,
-            dietRestrictions: { isVegan, isLactoseFree },
-          })
-          .then(() => {
-            history.push("/success")
-          })
-      } catch (e) {
-        console.error(e)
-      }
+      api
+        .addTravel({
+          firstName,
+          lastName,
+          email,
+          gender,
+          destination,
+          dietRestrictions: { isVegan, isLactoseFree },
+        })
+        .then(() => {
+          history.push("/success")
+        })
+        .catch((e) => {
+          history.push("/error", { error: new Error(e)})
+        })
     }
   }
 

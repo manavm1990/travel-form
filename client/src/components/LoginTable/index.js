@@ -26,8 +26,5 @@ export const LoginTable = () => {
     setUser(event.target.elements[0].value)
   }
 
-  if (!user) {
-    return <Login handler={loginHandler} />
-  }
-  return <Table travels={travels} />
+  return !user ? <Login handler={loginHandler} /> : <Table travels={travels} />
 }

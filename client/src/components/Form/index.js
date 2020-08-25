@@ -147,8 +147,9 @@ export const Form = () => {
         .then(() => {
           history.push("/success")
         })
+        // 'e' has already been 'Error-ified' in the previous 'throw'
         .catch((e) => {
-          history.push("/error", { error: new Error(e)})
+          history.push("/error", { error: e })
         })
     }
   }

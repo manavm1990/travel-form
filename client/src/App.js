@@ -1,13 +1,22 @@
-import React, { Fragment } from 'react';
+import React from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import {Header, Form} from "./components"
+import { Header, Form, Login } from "./components"
 
-import "./App.css";
+import "./App.css"
 
 export const App = () => (
-         <Fragment>
-           <Header />
-           <Form />
-         </Fragment>
-       )
+  <Router>
+    <Header />
 
+    <Route exact={true} path="/">
+      <Form />
+    </Route>
+
+    <Switch>
+      <Route path="/login">
+        <Login />
+      </Route>
+    </Switch>
+  </Router>
+)

@@ -18,7 +18,6 @@ export default {
       }
       return await res.json()
     } catch (e) {
-      console.log('server error says', e)
       throw new Error(e)
     }
   },

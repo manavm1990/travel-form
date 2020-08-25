@@ -12,13 +12,8 @@ export default {
       })
       return await res.json()
     } catch (e) {
-
-  async deleteAllTravels() {
-    const res = await fetch("http://localhost:5000/travel/delete", {
-      method: "DELETE"
-    })
-
-    return await res.json()
+      throw new Error(e)
+    }
   },
 
   async showTravels(email) {

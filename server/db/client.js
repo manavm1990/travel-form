@@ -13,7 +13,7 @@ const client = new MongoClient(process.env.MONGO_URI, {
 
   process.on('SIGINT', () => {
     client.close().then(() => {
-      console.log('Shutting down server cleanly!');
+      console.info('Shutting down server cleanly!');
     });
 
     process.exit(0);

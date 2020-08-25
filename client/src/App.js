@@ -1,7 +1,7 @@
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import { Header, Form, LoginTable, Success, Error } from "./components"
+import { Header, Form, LoginTable, Feedback } from "./components"
 
 import "./App.css"
 
@@ -17,13 +17,10 @@ export const App = () => (
       <Route path="/login">
         <LoginTable />
       </Route>
-      <Route path="/success">
-        <Success />
+      <Route path="/feedback">
+        <Feedback />
       </Route>
-      <Route path="/error">
-        <Error />
-      </Route>
-      <Route>
+      <Route exact={true} path="*">
         <p>404!</p>
       </Route>
     </Switch>

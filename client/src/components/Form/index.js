@@ -145,11 +145,11 @@ export const Form = () => {
           dietRestrictions: { isVegan, isLactoseFree },
         })
         .then(() => {
-          history.push("/success")
+          history.push("/feedback", { success: true})
         })
         // 'e' has already been 'Error-ified' in the previous 'throw'
         .catch((e) => {
-          history.push("/error", { error: e })
+          history.push("/feedback", { error: e })
         })
     }
   }

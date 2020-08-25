@@ -26,7 +26,7 @@ export default {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify.json({email})
+      body: JSON.stringify({email})
     })
 
     return await res.json()

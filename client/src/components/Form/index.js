@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useHistory } from "react-router-dom"
 
 import { Checkbox, Input, Radio } from "./Inputs"
 import { Select } from "./Select"
@@ -6,6 +7,8 @@ import { Select } from "./Select"
 import api from "api"
 
 export const Form = () => {
+  const history = useHistory()
+
   const [firstName, setFirstName] = useState("")
   const [firstNameError, setFirstNameError] = useState("")
   const [lastName, setLastName] = useState("")
@@ -132,15 +135,22 @@ export const Form = () => {
     event.preventDefault()
     // Don't do anything if there are any errors!
     if (!firstNameError && !lastNameError && !emailError) {
-      const res = await api.addTravel({
-        firstName,
-        lastName,
-        email,
-        gender,
-        destination,
-        dietRestrictions: { isVegan, isLactoseFree },
-      })
-      console.log(res)
+      try {
+        api
+          .addTravel({
+            firstName,
+            lastName,
+            email,
+            gender,
+            destination,
+            dietRestrictions: { isVegan, isLactoseFree },
+          })
+          .then(() => {
+            history.push("/success")
+          })
+      } catch (e) {
+        console.error(e)
+      }
     }
   }
 

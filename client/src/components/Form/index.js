@@ -155,44 +155,44 @@ export const Form = () => {
   }
 
   return (
-      <form className="center" onSubmit={handleSubmit}>
-        <div className="grid mt-3">
-          {textInputs.map(({ id, placeholder, error }, i) => (
-            <Input
-              handler={handleChange}
-              id={id}
-              key={i}
-              placeholder={placeholder}
-              error={error}
-            />
-          ))}
-          <Select selections={destinations} handler={handleChange} />
-        </div>
+    <form className="center" onSubmit={handleSubmit}>
+      <div className="grid mt-3">
+        {textInputs.map(({ id, placeholder, error }, i) => (
+          <Input
+            handler={handleChange}
+            id={id}
+            key={i}
+            placeholder={placeholder}
+            error={error}
+          />
+        ))}
+        <Select selections={destinations} handler={handleChange} />
+      </div>
 
-        <div className="flex flex--justify-space-around">
-          {genderInputs.map(({ name, value }, i) => (
-            <Radio
-              checked={gender === value}
-              name={name}
-              value={value}
-              handler={handleChange}
-              key={i}
-            />
-          ))}
+      <div className="flex flex--justify-space-around">
+        {genderInputs.map(({ name, value }, i) => (
+          <Radio
+            checked={gender === value}
+            name={name}
+            value={value}
+            handler={handleChange}
+            key={i}
+          />
+        ))}
 
-          {dietaryRestrictions.map(({ checked, id, label, value }, i) => (
-            <Checkbox
-              id={id}
-              label={label}
-              value={value}
-              handler={handleChange}
-              checked={checked}
-              key={i}
-            />
-          ))}
-        </div>
+        {dietaryRestrictions.map(({ checked, id, label, value }, i) => (
+          <Checkbox
+            id={id}
+            label={label}
+            value={value}
+            handler={handleChange}
+            checked={checked}
+            key={i}
+          />
+        ))}
+      </div>
 
-        <button className="button mt-3">Submit</button>
-      </form>
+      <button className="button mt-3">Submit</button>
+    </form>
   )
 }

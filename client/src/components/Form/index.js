@@ -128,11 +128,6 @@ export const Form = () => {
     }
   }
 
-  const handleClick = async () => {
-    const res = await api.deleteAllTravels()
-    console.log(res)
-  }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
     // Don't do anything if there are any errors!

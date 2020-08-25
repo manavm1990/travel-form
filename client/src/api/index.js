@@ -18,5 +18,17 @@ export default {
     })
 
     return await res.json()
+  },
+
+  async showTravels(email) {
+    const res = await fetch("http://localhost:5000/travel/show", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify.json({email})
+    })
+
+    return await res.json()
   }
 }

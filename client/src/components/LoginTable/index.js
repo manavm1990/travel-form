@@ -10,10 +10,15 @@ export const LoginTable = () => {
   const [user, setUser] = useState("")
 
   useEffect(() => {
-    user && (async () => {
-      const jsonRes = await api.showTravels(user)
-      setTravels(jsonRes)
-    })()
+    user &&
+      (async () => {
+        try {
+          const jsonRes = await api.showTravels(user)
+          setTravels(jsonRes)
+        } catch (error) {
+          console.error(error)
+        }
+      })()
   }, [user])
 
   const loginHandler = (event) => {

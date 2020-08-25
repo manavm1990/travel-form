@@ -150,7 +150,6 @@ export const Form = () => {
   }
 
   return (
-    <>
       <form className="center" onSubmit={handleSubmit}>
         <div className="grid mt-3">
           {textInputs.map(({ id, placeholder, error }, i) => (
@@ -190,10 +189,5 @@ export const Form = () => {
 
         <button className="button mt-3">Submit</button>
       </form>
-
-      <button className="button is-danger" onClick={handleClick}>
-        Delete Everything 🤯
-      </button>
-    </>
   )
 }

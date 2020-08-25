@@ -23,6 +23,9 @@ export const App = () => (
       <Route path="/error">
         <Error />
       </Route>
+      <Route>
+        <p>404!</p>
+      </Route>
     </Switch>
   </Router>
 )

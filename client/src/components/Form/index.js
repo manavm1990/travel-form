@@ -131,7 +131,7 @@ export const Form = () => {
     }
   }
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     // Don't do anything if there are any errors!
     if (!firstNameError && !lastNameError && !emailError) {

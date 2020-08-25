@@ -10,11 +10,15 @@ export default {
         // Turn 'newTravel' JS Object into actual JSON
         body: JSON.stringify(newTravel),
       })
-      if (!res.ok) {
-        throw `Unable to fetch from server! 😞 ${res.status}`
+
+      if (res.status > 400 && res.status < 500) {
+        throw `Bad route to server! 😞 ${res.status} ${res.body}`
+      } else if (!res.ok) {
+        throw `Unable to write data to server! ${res.status}`
       }
       return await res.json()
     } catch (e) {
+      console.log('server error says', e)
       throw new Error(e)
     }
   },

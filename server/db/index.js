@@ -8,7 +8,7 @@ export const addTravel = async (newTravel) => {
       .insertOne(newTravel);
     return insertRes;
   } catch (err) {
-    console.error(err);
+    throw new Error(err);
   }
 };
 

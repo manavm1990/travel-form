@@ -14,8 +14,8 @@ router.post('/add', async ({ body }, res) => {
     res.status(201);
     res.json(dbRes);
   } catch (error) {
-    res.status(500);
-    res.send(error);
+    error.message = 'Database error!';
+    res.status(500).send(error);
   }
 });
 
@@ -27,6 +27,7 @@ router.delete('/delete', async (_, res) => {
 });
 
 router.post('/show', async ({ body: { email } }, res) => {
+  // TODO: Add try-catch
   const dbRes = await showTravels(email);
   res.status(200);
   res.json(dbRes);

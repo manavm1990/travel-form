@@ -10,6 +10,9 @@ export default {
         // Turn 'newTravel' JS Object into actual JSON
         body: JSON.stringify(newTravel),
       })
+      if (!res.ok) {
+        throw `Unable to fetch from server! 😞 ${res.status}`
+      }
       return await res.json()
     } catch (e) {
       throw new Error(e)

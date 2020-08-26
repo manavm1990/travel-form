@@ -9,11 +9,10 @@ export const App = () => (
   <Router>
     <Header />
 
-    <Route exact={true} path="/">
-      <Form />
-    </Route>
-
     <Switch>
+      <Route exact={true} path="/">
+        <Form />
+      </Route>
       <Route path="/login">
         <LoginTable />
       </Route>
